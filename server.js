@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 app.listen(process.env.PORT || port);
 
 app.get('/ok', (req, res) => {
-    res.send('All is god man  ')
+    res.send('All is god man!')
 });
 
 app.use('/api/name', (req, res, next) => {
