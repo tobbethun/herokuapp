@@ -6,14 +6,16 @@ const port = 5000;
 
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, 'frontend/build/static')));
-app.use(express.static(path.join(__dirname, 'frontend/build')));
+app.use(express.static(path.join(__dirname, 'build/static')));
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'))
+    res.sendFile(path.join(__dirname, 'build', 'index.html'))
 });
 
-app.listen(process.env.PORT || port);
+app.listen(process.env.PORT || port, () => {
+    console.log('Server is running on port' + port);
+});
 
 app.get('/ok', (req, res) => {
     res.send('All is god man!')
